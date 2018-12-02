@@ -3,40 +3,42 @@ import Layout from '../components/layout'
 import MonsterCard from '../components/MonsterCard'
 import monsterData from '../components/MonsterData'
 
-// const IndexPage = () => (
-//   <div>
-//   <Layout />
-//   <MonsterCard 
-//     info = {{
-//       name: "venom",
-//       set: "marvel",
-//       power: 10,
-//       treasure: 3,
-//       levels: 1,
-//       abilities: "-3 against Spider-friends. You may discard Klaw's Sonic Blaster to automatically defeat him (gain treasures, but no levels).",
-//       bad: "If you are wearing armor, you have -5 in your next combat. If not, -10!"
-//     }}
-//   />
-//   </div>
-// )
+// function App() {
+//   const monsterDetails = monsterData.find(monster => monster.name === 'venom')
 
-function IndexPage() {
-  const monsterCards = monsterData.map(monster => 
-    <MonsterCard 
-      key={monster.name}
-      name={monster.name}
-      set={monster.set}
-      power={monster.power}
-      treasure={monster.treasure}
-      levels={monster.levels}
-      abilities={monster.abilities}
-      bad={monster.bad}
-    />)
+//   return (
+//     <div>
+//       <MonsterCard info = {monsterDetails} />
+//     </div>
+//   )
+// }
 
-  return (
-    <div>
-        {monsterCards}            
-    </div>
-  )
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      })
+    }, 1500)
+  }
+
+  render() {
+    const monsterDetails = monsterData.find(monster => monster.name === 'venom')
+
+    return(
+      <div>
+        <Layout />
+        <MonsterCard info={monsterDetails} isLoading={this.state.isLoading}/>
+      </div>
+    )
+  }
 }
-export default IndexPage
+
+export default App

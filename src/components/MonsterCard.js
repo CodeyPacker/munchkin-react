@@ -10,16 +10,22 @@ const styles = {
 }
 
 function MonsterCard(props) {
-  return(
+  if (props.isLoading) {
+    return (
+      <h1>Finding Monster...</h1>
+    )
+  }
+
+  return (
     <div style={styles}>
-      <h3>{props.name}</h3>
-      <p>{`${props.set} set`}</p>
-      <p>{`Power: ${props.power}`}</p>
-      <p>{`Treasures: ${props.treasure}`}</p>
-      <p>{`Levels: ${props.levels}`}</p>
-      <p>{`Abilities: ${props.abilities}`}</p>
-      <p>{`Bad stuff: ${props.bad}`}</p>
-  </div>
+      <h3>{props.info.name}</h3>
+      <p>{props.info.set}</p>
+      <p>{props.info.power}</p>
+      <p>{props.info.treasure}</p>
+      <p>{props.info.levels}</p>
+      <p>{props.info.abilities}</p>
+      <p>{props.info.bad}</p>
+    </div>
   )
 }
 
