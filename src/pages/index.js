@@ -3,40 +3,61 @@ import Layout from '../components/layout'
 import MonsterCard from '../components/MonsterCard'
 import monsterData from '../components/MonsterData'
 
-// const IndexPage = () => (
-//   <div>
-//   <Layout />
-//   <MonsterCard 
-//     info = {{
-//       name: "venom",
-//       set: "marvel",
-//       power: 10,
-//       treasure: 3,
-//       levels: 1,
-//       abilities: "-3 against Spider-friends. You may discard Klaw's Sonic Blaster to automatically defeat him (gain treasures, but no levels).",
-//       bad: "If you are wearing armor, you have -5 in your next combat. If not, -10!"
-//     }}
-//   />
-//   </div>
-// )
-
-function IndexPage() {
-  const monsterCards = monsterData.map(monster => 
-    <MonsterCard 
-      key={monster.name}
-      name={monster.name}
-      set={monster.set}
-      power={monster.power}
-      treasure={monster.treasure}
-      levels={monster.levels}
-      abilities={monster.abilities}
-      bad={monster.bad}
-    />)
-
-  return (
-    <div>
-        {monsterCards}            
-    </div>
-  )
+const defaultPadding = {
+  paddingLeft: '15px',
+  paddingRight: '15px'
 }
-export default IndexPage
+
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      monsterName: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value.toLowerCase()
+    })
+  }
+
+
+  render() {
+    let enteredMonster = this.state.monsterName
+    const monsterDetails = monsterData.find(monster => monster.name === enteredMonster)
+    const userDirections = 'Enter a monster name'
+
+    return(
+      <div>
+        <Layout />
+        {
+          !enteredMonster ? 
+          <h3 style={defaultPadding}>{userDirections}</h3> :
+          <MonsterCard info={monsterDetails}/>
+        }
+        <form style={{maxWidth: '175px', margin: '0 auto'}}>
+          <input 
+            type='text' 
+            value={this.state.monsterName} 
+            name='monsterName'
+            placeholder='Start Battle'
+            onChange={this.handleChange}
+          />
+        </form>
+      </div>
+    )
+  }
+}
+
+// function App() {
+//   const monsterDetails = monsterData.find(monster => monster.name === 'venom')
+
+//   return (
+//     <div>
+//       <MonsterCard info = {monsterDetails} />
+//     </div>
+//   )
+// }
+export default App

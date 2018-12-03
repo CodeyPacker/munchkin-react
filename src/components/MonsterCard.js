@@ -1,25 +1,34 @@
 import React from 'react'
-const styles = {
+const cardStyles = {
   width: '300px',
-  display: 'inline-block',
   minHeight: '375px',
-  margin: '20px',
+  margin: '20px auto',
   padding: '15px',
   borderRadius: '10px',
   boxShadow: '0px 2px 10px 0px rgba(92,92,92,1)'
 }
 
+const defaultPadding = {
+  padding: '15px'
+}
+
 function MonsterCard(props) {
-  return(
-    <div style={styles}>
-      <h3>{props.name}</h3>
-      <p>{`${props.set} set`}</p>
-      <p>{`Power: ${props.power}`}</p>
-      <p>{`Treasures: ${props.treasure}`}</p>
-      <p>{`Levels: ${props.levels}`}</p>
-      <p>{`Abilities: ${props.abilities}`}</p>
-      <p>{`Bad stuff: ${props.bad}`}</p>
-  </div>
+  if (props.info === undefined) {
+    return (
+      <h3 style={defaultPadding}>Finding Monster...</h3>
+    )
+  }
+
+  return (
+    <div style={cardStyles}>
+      <h3>{props.info.name}</h3>
+      <p>{props.info.set}</p>
+      <p>{props.info.power}</p>
+      <p>{props.info.treasure}</p>
+      <p>{props.info.levels}</p>
+      <p>{props.info.abilities}</p>
+      <p>{props.info.bad}</p>
+    </div>
   )
 }
 
