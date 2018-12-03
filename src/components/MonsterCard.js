@@ -1,23 +1,26 @@
 import React from 'react'
-const styles = {
+const cardStyles = {
   width: '300px',
-  display: 'inline-block',
   minHeight: '375px',
-  margin: '20px',
+  margin: '20px auto',
   padding: '15px',
   borderRadius: '10px',
   boxShadow: '0px 2px 10px 0px rgba(92,92,92,1)'
 }
 
+const defaultPadding = {
+  padding: '15px'
+}
+
 function MonsterCard(props) {
-  if (props.isLoading) {
+  if (props.info === undefined) {
     return (
-      <h1>Finding Monster...</h1>
+      <h3 style={defaultPadding}>Finding Monster...</h3>
     )
   }
 
   return (
-    <div style={styles}>
+    <div style={cardStyles}>
       <h3>{props.info.name}</h3>
       <p>{props.info.set}</p>
       <p>{props.info.power}</p>
