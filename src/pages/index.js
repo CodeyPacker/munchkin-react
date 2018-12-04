@@ -1,12 +1,20 @@
+
 import React from 'react'
 import Layout from '../components/layout'
 import MonsterCard from '../components/MonsterCard'
 import monsterData from '../components/MonsterData'
+import { css } from 'emotion'
 
-const defaultPadding = {
-  paddingLeft: '15px',
-  paddingRight: '15px'
-}
+const defaultPadding = css`
+  padding-left: '15px';
+  padding-right: '15px';
+`;
+
+const monsterInput = css`
+  margin: 0 auto;
+  padding-left: '15px';
+  padding-right: '15px';
+`;
 
 class App extends React.Component {
   constructor() {
@@ -34,11 +42,12 @@ class App extends React.Component {
         <Layout />
         {
           !enteredMonster ? 
-          <h3 style={defaultPadding}>{userDirections}</h3> :
+          <h3 className={defaultPadding}>{userDirections}</h3> :
           <MonsterCard info={monsterDetails}/>
         }
-        <form style={{maxWidth: '175px', margin: '0 auto'}}>
+        <form>
           <input 
+            className= {monsterInput}
             type='text' 
             value={this.state.monsterName} 
             name='monsterName'
