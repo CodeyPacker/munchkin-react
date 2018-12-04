@@ -11,7 +11,9 @@ const defaultPadding = css`
 `;
 
 const monsterInput = css`
+  display: block;
   margin: 0 auto;
+  text-align: center;
   padding-left: '15px';
   padding-right: '15px';
 `;
@@ -40,11 +42,6 @@ class App extends React.Component {
     return(
       <div>
         <Layout />
-        {
-          !enteredMonster ? 
-          <h3 className={defaultPadding}>{userDirections}</h3> :
-          <MonsterCard info={monsterDetails}/>
-        }
         <form>
           <input 
             className= {monsterInput}
@@ -55,6 +52,11 @@ class App extends React.Component {
             onChange={this.handleChange}
           />
         </form>
+        {
+          !enteredMonster ? 
+          <h3 className={defaultPadding}>{userDirections}</h3> :
+          <MonsterCard info={monsterDetails}/>
+        }
       </div>
     )
   }

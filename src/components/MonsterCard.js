@@ -21,13 +21,12 @@ function MonsterCard(props) {
 
   return (
     <div style={cardStyles}>
+      <p>Level {props.info.power}</p>
       <h3>{props.info.name}</h3>
-      <p>{props.info.set}</p>
-      <p>{props.info.power}</p>
-      <p>{props.info.treasure}</p>
-      <p>{props.info.levels}</p>
       <p>{props.info.abilities}</p>
       <p>{props.info.bad}</p>
+      <p>Treasure: {props.info.treasure}</p>
+      <p>Levels: {props.info.levels}</p>
     </div>
   )
 }
