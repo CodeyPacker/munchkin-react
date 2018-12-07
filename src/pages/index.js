@@ -1,66 +1,75 @@
-
 import React from 'react'
+import styled from '@emotion/styled'
 import Layout from '../components/layout'
 import MonsterCard from '../components/MonsterCard'
 import monsterData from '../components/MonsterData'
-import { css } from 'emotion'
-
-const defaultPadding = css`
-  padding-left: '15px';
-  padding-right: '15px';
-`;
-
-const monsterInput = css`
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  padding-left: '15px';
-  padding-right: '15px';
-`;
+// import styled from '@emotion/styled'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      monsterName: ''
+      monsterName: '',
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value.toLowerCase()
+      [event.target.name]: event.target.value.toLowerCase(),
     })
   }
 
-
   render() {
     let enteredMonster = this.state.monsterName
-    const monsterDetails = monsterData.find(monster => monster.name === enteredMonster)
+    const monsterDetails = monsterData.find(
+      monster => monster.name === enteredMonster
+    )
     const userDirections = 'Enter a monster name'
 
-    return(
+    return (
+      
       <div>
         <Layout />
+        {/* <SearchIcon src="https://via.placeholder.com/20" alt='search for monster'/> */}
         <form>
-          <input 
-            className= {monsterInput}
-            type='text' 
-            value={this.state.monsterName} 
-            name='monsterName'
-            placeholder='Start Battle'
+          <StartInput
+            type="text"
+            value={this.state.monsterName}
+            name="monsterName"
+            placeholder="Monster Name"
             onChange={this.handleChange}
           />
         </form>
-        {
-          !enteredMonster ? 
-          <h3 className={defaultPadding}>{userDirections}</h3> :
-          <MonsterCard info={monsterDetails}/>
-        }
+        {!enteredMonster ? (
+          <Directions>{userDirections}</Directions>
+        ) : (
+          <MonsterCard info={monsterDetails} />
+        )}
       </div>
     )
   }
 }
+
+// const SearchIcon = styled.button`
+//   padding: 6px;
+//   margin-left: 15px;
+//   cursor: pointer;
+//   background-color: #5d2ae5;
+// `
+const StartInput = styled.input`
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  border: 1px solid rebeccapurple;
+  border-radius: 5px;
+`
+
+const Directions = styled.h3`
+  text-align: center;
+`
 
 // function App() {
 //   const monsterDetails = monsterData.find(monster => monster.name === 'venom')
