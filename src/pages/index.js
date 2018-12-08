@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Layout from '../components/layout'
-import MonsterCard from '../components/MonsterCard'
+// import MonsterCard from '../components/MonsterCard'
 import monsterData from '../components/MonsterData'
 // import styled from '@emotion/styled'
 
@@ -10,29 +10,52 @@ class App extends React.Component {
     super()
     this.state = {
       monsterName: '',
+      matchedMonsters: [],
+      activeMonster: '',
     }
     this.handleChange = this.handleChange.bind(this)
+    this.displayCard= this.displayCard.bind(this)
   }
 
   handleChange(event) {
+    // CALLS THE FINDMATCHES FUNCTION AND PASSES IN THE USERS INPUT AND THE MONSTER ARRAY
+    const matchArray = this.findMatches(event.target.value, monsterData);
+
     this.setState({
       [event.target.name]: event.target.value.toLowerCase(),
+      // SETS THE NEW ARRAY TO A MAX LENGTH OF 5
+      matchedMonsters: matchArray.slice(0, 5),
     })
+
+  }
+
+  // TAKES THE USERS INPUT AND RETURNS AN ARRAY WITH MATCHING ITEMS
+  findMatches(wordToMatch, monsterData) {
+    return monsterData.filter(monster => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return monster.name.match(regex)
+    });
+  }
+
+  displayCard(event) {
+    this.setState({
+      activeMonster: event.target.value,
+    })
+    console.log(this.state.activeMonster);
   }
 
   render() {
-    let enteredMonster = this.state.monsterName
-    const monsterDetails = monsterData.find(
-      monster => monster.name === enteredMonster
-    )
-    const userDirections = 'Enter a monster name'
-
+    // let enteredMonster = this.state.monsterName
+    // const monsterDetails = monsterData.find(
+    //   monster => monster.name === enteredMonster
+    // )
+    // const userDirections = 'Enter a monster name'
     return (
       
       <div>
         <Layout />
         {/* <SearchIcon src="https://via.placeholder.com/20" alt='search for monster'/> */}
-        <form>
+        <form autoComplete="off">
           <StartInput
             type="text"
             value={this.state.monsterName}
@@ -41,22 +64,23 @@ class App extends React.Component {
             onChange={this.handleChange}
           />
         </form>
-        {!enteredMonster ? (
+        <ul>
+          {this.state.matchedMonsters.map(monster => {
+            return (
+              <button key={monster.name} onClick={this.displayCard} value={monster.name}>{monster.name}</button>
+            )
+          })}
+        </ul>
+        {/* {!enteredMonster ? (
           <Directions>{userDirections}</Directions>
         ) : (
           <MonsterCard info={monsterDetails} />
-        )}
+        )} */}
       </div>
     )
   }
 }
 
-// const SearchIcon = styled.button`
-//   padding: 6px;
-//   margin-left: 15px;
-//   cursor: pointer;
-//   background-color: #5d2ae5;
-// `
 const StartInput = styled.input`
   display: block;
   margin: 0 auto;
@@ -67,17 +91,12 @@ const StartInput = styled.input`
   border-radius: 5px;
 `
 
-const Directions = styled.h3`
-  text-align: center;
-`
+// const Directions = styled.h3`
+//   text-align: center;
+// `
 
-// function App() {
-//   const monsterDetails = monsterData.find(monster => monster.name === 'venom')
 
-//   return (
-//     <div>
-//       <MonsterCard info = {monsterDetails} />
-//     </div>
-//   )
-// }
 export default App
+
+// TODO: Take the value of the suggestion button that's clicked, 
+// and display the matching monster card
