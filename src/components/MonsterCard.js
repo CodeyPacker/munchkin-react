@@ -2,12 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 function MonsterCard(props) {
-  if (props.info === undefined) {
-    return (
-      <Searching>Searching for Monster...</Searching>
-    )
-  }
-
+  console.log(props);
   return (
     <Card>
       <MonsterLevel>Level {props.info.power}</MonsterLevel>
@@ -68,10 +63,5 @@ const MonsterRewards = styled.div`
   padding-right: 15px;
   color: #5d2ae5
 `
-
-const Searching = styled.h3`
-  text-align: center;
-`
-
 
 export default MonsterCard
