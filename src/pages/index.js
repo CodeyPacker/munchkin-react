@@ -1,21 +1,23 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import Form from '../components/FormContainer'
-import Layout from '../components/layout'
-
-
-// import MonsterCard from '../components/MonsterCard'
-// import monsterData from '../components/MonsterData'
-// import styled from '@emotion/styled'
+// import Nav from '../components/Nav'
 
 function App() {
   return (
-    <div>
-      <Layout />
+    <Container>
       <Form />
-    </div>
+      {/* <Nav /> */}
+    </Container>
   )
 }
 export default App
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
 
 // TODO: Take the value of the suggestion button that's clicked, 
 // and display the matching monster card

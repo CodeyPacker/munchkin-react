@@ -51,7 +51,7 @@ const StartInput = styled.input`
   font-size: 25px;
   width: calc(100% - 30px);
   max-width: 350px;
-  margin: 0 auto;
+  margin: 15px auto;
   padding: 5px;
   text-align: center;
   font-family: 'Quicksand', sans-serif;

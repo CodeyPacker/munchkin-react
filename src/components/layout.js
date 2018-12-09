@@ -3,7 +3,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
+import Nav from './Nav'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Nav siteTitle={data.site.siteMetadata.title} />
       </>
     )}
   />

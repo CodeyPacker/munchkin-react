@@ -22,7 +22,7 @@ function MonsterCard(props) {
 const Card = styled.div`
   width: 300px;
   min-height: 375px;
-  margin: 20px auto;
+  margin: 15px auto;
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 10px;

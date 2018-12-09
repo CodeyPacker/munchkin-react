@@ -1,34 +1,33 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-const Header = ({ siteTitle }) => (
+const Nav = () => (
   <div
     style={{
       background: '#5d2ae5',
-      marginBottom: '.75rem',
+      marginTop: 'auto',
     }}
   >
     <div
       style={{
-        margin: '0 auto',
+        marginTop: 'auto',
         maxWidth: 960,
         padding: '.5rem 1.0875rem',
       }}
     >
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+        <a
+          href="/"
           style={{
             color: 'white',
             textDecoration: 'none',
             fontSize: '25px',
           }}
         >
-          {siteTitle}
-        </Link>
+          Munchkin Battle Tracker
+        </a>
       </h1>
     </div>
   </div>
 )
 
-export default Header
+export default Nav
