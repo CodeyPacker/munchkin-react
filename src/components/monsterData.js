@@ -1,4 +1,4 @@
-const monsterData = [{
+const MonsterData = [{
   name: "jerry's mytholog",
   set: "rick and morty",
   power: 1,
@@ -1788,4 +1788,4 @@ const monsterData = [{
 }
 ];
 
-export default monsterData
+export default MonsterData
