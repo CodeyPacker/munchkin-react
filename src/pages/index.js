@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Form from '../components/FormContainer'
-// import Nav from '../components/Nav'
+// import SearchMonster from '../components/FormContainer'
+import Header from '../components/Header'
+import {BrowserRouter, Route} from 'react-router-dom'
+import Board from '../components/Board'
 
 function App() {
   return (
-    <Container>
-      <Form />
-      {/* <Nav /> */}
-    </Container>
+    <BrowserRouter>
+      <Container>
+        <Route path="/" component={Header}/>
+        {/* <Route exact path="/" component={SearchMonster} /> */}
+        <Route path="/board" component={Board} />
+      </Container>
+    </BrowserRouter>
   )
 }
 export default App
@@ -19,5 +24,5 @@ const Container = styled.div`
   height: 100vh;
 `
 
-// TODO: Take the value of the suggestion button that's clicked, 
+// TODO: Take the value of the suggestion button that's clicked,
 // and display the matching monster card

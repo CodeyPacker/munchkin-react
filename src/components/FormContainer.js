@@ -1,6 +1,6 @@
 import React from 'react'
 import monsterData from './MonsterData'
-import Form from './Form'
+import Form from './SearchMonster'
 
 class FormContainer extends React.Component {
   constructor() {

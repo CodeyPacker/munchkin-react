@@ -3,14 +3,14 @@ import styled from '@emotion/styled'
 import MonsterCard from './MonsterCard'
 import MonsterData from './MonsterData'
 
-function Form(props) {
+function SearchMonster(props) {
   // Get the monster object that gets passed as a prop to MonsterCard
   let enteredMonster = props.data.activeMonster
   const monsterDetails = MonsterData.find(
     monster => monster.name === enteredMonster
   )
 
-  return (    
+  return (
     <div>
       <form autoComplete="off">
         <StartInput
@@ -24,9 +24,9 @@ function Form(props) {
         <SuggestionContainer>
           {props.data.matchedMonsters.map(monster => {
             return (
-              <Suggestion 
-                key={monster.name} 
-                onClick={props.getActiveMonster} 
+              <Suggestion
+                key={monster.name}
+                onClick={props.getActiveMonster}
                 value={monster.name}>
                 {monster.name
                   .toLowerCase()
@@ -38,7 +38,7 @@ function Form(props) {
             )
           })}
         </SuggestionContainer>
-        
+
         {/* If the activeMonster isn't an empty string, which it is by default.
             Then, display the monster card and pass in the object that we made above */}
         {props.data.activeMonster !== '' ? <MonsterCard info={monsterDetails}/> : null}
@@ -77,4 +77,4 @@ const Suggestion = styled.button`
   font-family: 'Quicksand', sans-serif;
 `
 
-export default Form
+export default SearchMonster
