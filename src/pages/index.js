@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Header from '../components/Header'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Board from '../components/Board'
+import ScoreBoard from '../components/FeatureScores'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" component={Header}/>
         {/* <Route exact path="/" component={SearchMonster} /> */}
         <Route path="/board" component={Board} />
+        <Route exact path="/" component={ScoreBoard}/>
       </Container>
     </BrowserRouter>
   )
@@ -23,6 +25,3 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
 `
-
-// TODO: Take the value of the suggestion button that's clicked,
-// and display the matching monster card
