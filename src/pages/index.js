@@ -4,18 +4,27 @@ import styled from '@emotion/styled'
 import Header from '../components/Header'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Board from '../components/Board'
-import ScoreBoard from '../components/FeatureScores'
+import ScoreBoard from '../components/FeatureScoresLayout'
+import Player from '../components/Player/Player'
+import { Provider } from '../components/Context';
+// import SearchMonster from '../components/SearchMonster'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Container>
-        <Route path="/" component={Header}/>
-        {/* <Route exact path="/" component={SearchMonster} /> */}
-        <Route path="/board" component={Board} />
-        <Route exact path="/" component={ScoreBoard}/>
-      </Container>
-    </BrowserRouter>
+    <Provider>
+      <BrowserRouter>
+        <Container>
+          <Route path="/" component={Header}/>
+          {/* <Route exact path="/" component={SearchMonster} /> */}
+          <Route path="/board" component={Board} />
+          <Route exact path="/battle" component={ScoreBoard}/>
+          <Route
+            exact path="/"
+            component={Player}
+            index={0}/>
+        </Container>
+      </BrowserRouter>
+    </Provider>
   )
 }
 export default App

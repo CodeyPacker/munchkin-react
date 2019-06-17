@@ -1,12 +1,15 @@
 import React from 'react'
-import PlayerScore from './PlayerScore'
+import PlayerScore from './Player/PlayerScore'
+import MonsterScore from './Monster/MonsterScore'
 import styled from '@emotion/styled'
+
+// This can be merged with BattleScore.js as it'll only be used once too
 
 const FeatureScores = () => (
   <FeatureScoresWrapper>
     <Constraint>
       <PlayerScore/>
-      <PlayerScore/>
+      <MonsterScore/>
     </Constraint>
   </FeatureScoresWrapper>
 )
