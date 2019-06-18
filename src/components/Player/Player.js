@@ -8,16 +8,22 @@ const Player = () => {
   return (
     <Consumer>
       { ({ players }) => (
-        <div>
+        <PlayerWrapper>
           <PlayerImage src="https://via.placeholder.com/150" alt="lol"/>
           <p>hi lol, i'm {players[0].name}.</p>
-          <p>Total Score: {players[0].score}</p>
-          <PlayerCounter/>
-        </div>
+          <p>Total Score with my gear is {players[0].baseScore}</p>
+          <PlayerCounter modifier="baseScore"/>
+        </PlayerWrapper>
       )}
     </Consumer>
   );
 }
+
+const PlayerWrapper = styled.div`
+  margin-right: 15px;
+  margin-left: 15px;
+  text-align: center;
+`
 
 const PlayerImage = styled.img`
   margin: 0 auto;

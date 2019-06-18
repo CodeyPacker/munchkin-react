@@ -6,12 +6,13 @@ import { Consumer } from '../Context';
 // Players vs Monsters on the battle page
 
 const PlayerScore = () => {
+
   return (
     <Consumer>
       { ({ players }) => (
         <ScoreContainer>
           <img src="https://via.placeholder.com/75" alt="lol"/>
-          <Score>{players[0].score}</Score>
+          <Score>{players[0].baseScore + players[0].oneShotItems}</Score>
         </ScoreContainer>
       )}
     </Consumer>
