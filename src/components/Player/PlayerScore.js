@@ -7,7 +7,6 @@ import PlayerImage from '../../images/player.svg'
 // Players vs Monsters on the battle page
 
 const PlayerScore = () => {
-
   return (
     <Consumer>
       { ({ players }) => (

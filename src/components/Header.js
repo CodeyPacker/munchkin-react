@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'gatsby'
 
 const Header = () => (
   <Navigation>
-    <NavLink exact to="/">Player</NavLink>
-    <NavLink exact to="/battle">Battle</NavLink>
-    <NavLink to="/board">Board</NavLink>
+    <Link to="/">Player</Link>
+    <Link to="/battle">Battle</Link>
+    <Link to="/">Board</Link>
+
   </Navigation>
 )
 

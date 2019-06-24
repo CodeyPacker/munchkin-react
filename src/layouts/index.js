@@ -1,10 +1,11 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { Provider } from '../components/Context';
 
-import Header from './Header'
-import './layout.css'
+
+import '../components/layout.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -28,14 +29,16 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Provider>
+          {children}
+        </Provider>
       </>
     )}
   />
 )
 
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default Layout
