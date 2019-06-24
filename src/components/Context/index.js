@@ -11,6 +11,12 @@ export class Provider extends Component {
         baseScore: 1,
         oneShotItems: 0,
         id: 1
+      },
+      {
+        name: "player 2",
+        baseScore: 5,
+        oneShotItems: 0,
+        id: 2
       }
     ],
     monsters: [
