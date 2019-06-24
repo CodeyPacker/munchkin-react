@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Consumer } from '../Context';
+import PlayerImage from '../../images/player.svg'
 
 // This is the section that shows the total scores of the
 // Players vs Monsters on the battle page
@@ -11,7 +12,7 @@ const PlayerScore = () => {
     <Consumer>
       { ({ players }) => (
         <ScoreContainer>
-          <img src="https://via.placeholder.com/75" alt="lol"/>
+          <img src={PlayerImage} alt="lol"/>
           <Score>{players[0].baseScore + players[0].oneShotItems}</Score>
         </ScoreContainer>
       )}
