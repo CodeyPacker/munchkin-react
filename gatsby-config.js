@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Munchkin Battle Tracker',
+    title: 'Battle Tracker',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
