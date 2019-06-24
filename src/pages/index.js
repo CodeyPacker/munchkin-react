@@ -4,16 +4,31 @@ import styled from '@emotion/styled'
 import Header from '../components/Header'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Board from '../components/Board'
+import FeatureScores from '../components/FeatureScoresLayout'
+import Player from '../components/Player/Player'
+import PlayerCounter from '../components/Player/PlayerCounter'
+import { Provider } from '../components/Context';
+// import SearchMonster from '../components/SearchMonster'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Container>
-        <Route path="/" component={Header}/>
-        {/* <Route exact path="/" component={SearchMonster} /> */}
-        <Route path="/board" component={Board} />
-      </Container>
-    </BrowserRouter>
+    <Provider>
+      <BrowserRouter>
+        <Container>
+          <Route path="/" component={Header}/>
+          <Route path="/board" component={Board} />
+          <Route exact path="/battle" component={FeatureScores}/>
+          <Route
+            exact path="/"
+            component={Player}
+            index={0}/>
+          <Route
+            path="/battle"
+            render={(props) => <PlayerCounter modifier="oneShotItems" {...props}/>}
+          />
+        </Container>
+      </BrowserRouter>
+    </Provider>
   )
 }
 export default App
@@ -23,6 +38,3 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
 `
-
-// TODO: Take the value of the suggestion button that's clicked,
-// and display the matching monster card
