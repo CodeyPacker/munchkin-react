@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 function MonsterCard(props) {
-  console.log(props);
   return (
     <Card>
       <MonsterLevel>Level {props.info.power}</MonsterLevel>
