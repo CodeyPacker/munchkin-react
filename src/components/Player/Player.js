@@ -1,34 +1,48 @@
-import React from 'react'
+import React, { PureComponent } from 'react';
+import Counter from '../Counter';
 import styled from '@emotion/styled'
-import { Consumer } from '../Context';
-import PlayerCounter from './PlayerCounter'
-import PlayerImg from '../../images/player.svg'
 
-const Player = () => {
-  return (
-    <Consumer>
-      { ({ players }) => (
-        <PlayerWrapper>
-          <PlayerImage src={PlayerImg} alt="lol"/>
-          <p>hi lol, i'm {players[0].name}.</p>
-          <p>Total Score with my gear is {players[0].baseScore}</p>
-          <PlayerCounter modifier="baseScore"/>
-        </PlayerWrapper>
-      )}
-    </Consumer>
-  );
+class Player extends PureComponent {
+  render() {
+
+    const {
+      name,
+      // id,
+      // score,
+      index
+      // removePlayer,
+      // changeScore
+    } = this.props;
+
+    return (
+      <PlayerWrapper className="player">
+        <span className="player-name">
+          {/* <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> */}
+          <p className="name">{ name }</p>
+        </span>
+
+        <Counter index={index} modifier="oneShotItems"/>
+
+      </PlayerWrapper>
+    );
+  }
 }
 
 const PlayerWrapper = styled.div`
-  margin-right: 15px;
-  margin-left: 15px;
-  text-align: center;
-`
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border-bottom: 1px solid #EEEEEE;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-family: 'Montserrat', 'sans-serif';
+  color: #4C4C4D;
 
-const PlayerImage = styled.img`
-  margin: 0 auto;
-  display: block;
-  padding-top: 26px;
-  padding-bottom: 26px;
+  .name {
+    font-size: 25px;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 `
-export default Player
+export default Player;

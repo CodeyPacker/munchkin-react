@@ -10,14 +10,23 @@ export class Provider extends Component {
         name: "Player 1",
         baseScore: 1,
         oneShotItems: 0,
+        totalScore: 0,
         id: 1
+      },
+      {
+        name: "Player 2",
+        baseScore: 1,
+        oneShotItems: 0,
+        totalScore: 0,
+        id: 2
       }
     ],
     monsters: [
       {
         name: "Venom",
         score: 10,
-        id: 1
+        id: 1,
+        totalScore: 1,
       }
     ]
   };
@@ -26,16 +35,8 @@ export class Provider extends Component {
  prevPlayerId = 1;
 
  handleScoreChange = (index, delta, modifier) => {
-
-  //  let scoreType = this.players[0].baseScore;
-   console.log(modifier)
-  //  if (modifier === "oneShotItems") {
-  //   scoreType = this.players[0].oneShotItems
-  //  }
-
-  // const mod = modifier === "baseScore" ? this.state.players[0].baseScore : this.state.players[0].oneShotItems
-   this.setState( prevState => ({
-    score: prevState.players[0][modifier] += delta
+  this.setState( prevState => ({
+    baseScore: prevState.players[index][modifier] += delta
   }));
  }
 

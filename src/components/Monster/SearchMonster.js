@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import MonsterCard from './MonsterCard'
-import MonsterData from './MonsterData'
+import MonsterCard from '../Monster/MonsterCard'
+import MonsterData from '../Monster/monsterData'
 
 function SearchMonster(props) {
   // Get the monster object that gets passed as a prop to MonsterCard
