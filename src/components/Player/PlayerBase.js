@@ -9,10 +9,11 @@ const PlayerBase = (props) => {
     <Consumer>
       { ({ players }) => (
         <PlayerWrapper>
-          <PlayerImage src={PlayerImg} alt="lol"/>
-          <p>hi lol, i'm {players[0].name}.</p>
-          <p>Total Score with my gear is {players[0].baseScore}</p>
-          <Counter index={0} modifier="baseScore"/>
+          <PlayerImage src={PlayerImg} alt="Player image"/>
+          <h2>Level</h2>
+          <CounterWrapper>
+            <Counter index={0} modifier="baseScore"/>
+          </CounterWrapper>
         </PlayerWrapper>
       )}
     </Consumer>
@@ -20,9 +21,14 @@ const PlayerBase = (props) => {
 }
 
 const PlayerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 150px);
   margin-right: 15px;
   margin-left: 15px;
   text-align: center;
+  color: #4C4C4D;
 `
 
 const PlayerImage = styled.img`
@@ -30,5 +36,11 @@ const PlayerImage = styled.img`
   display: block;
   padding-top: 26px;
   padding-bottom: 26px;
+  max-width: 150px;
+  max-height: 202px;
+  width: 100%;
+`
+const CounterWrapper = styled.div`
+  height: 60px;
 `
 export default PlayerBase

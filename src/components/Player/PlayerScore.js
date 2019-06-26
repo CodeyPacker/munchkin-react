@@ -13,12 +13,10 @@ const PlayerScore = () => {
       { ({ players }) => (
         <ScoreContainer>
           <img src={PlayerImage} alt="lol"/>
-          {/* Obviously reduce the players objects down to a single score... lol */}
           <Score>
-          {/* {(players[0].baseScore + players[0].oneShotItems) + (players[1].baseScore + players[1].oneShotItems)} */}
-          {players.reduce(function(prev, cur) {
-            return prev += cur.baseScore + cur.oneShotItems;
-          }, 0)}
+            {players.reduce(function(prev, cur) {
+              return prev += cur.baseScore + cur.oneShotItems;
+            }, 0)}
           </Score>
         </ScoreContainer>
       )}
@@ -36,7 +34,7 @@ const ScoreContainer = styled.div`
 
 const Score = styled.p`
   text-align: center;
-  font-size: 25px;
+  font-size: 35px;
   font-family: 'Montserrat', 'sans-serif';
   margin-bottom: 0;
 `

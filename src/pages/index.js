@@ -3,12 +3,10 @@ import styled from '@emotion/styled'
 // import SearchMonster from '../components/FormContainer'
 import Header from '../components/Header'
 import {HashRouter, Route} from 'react-router-dom'
-import Board from '../components/Board'
 import FeatureScores from '../components/FeatureScoresLayout'
 import PlayerBase from '../components/Player/PlayerBase'
 import { Provider } from '../components/Context'
 import PlayerList from '../components/Player/PlayerList'
-// import SearchMonster from '../components/SearchMonster'
 
 function App() {
   return (
@@ -16,7 +14,6 @@ function App() {
       <HashRouter>
         <Container>
           <Route path="/" component={Header}/>
-          <Route path="/board" component={Board} />
           <Route exact path="/battle" component={FeatureScores}/>
           <Route
             exact path="/"

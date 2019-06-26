@@ -6,7 +6,6 @@ const Header = () => (
   <Navigation>
     <NavLink exact to="/">Player</NavLink>
     <NavLink exact to="/battle">Battle</NavLink>
-    <NavLink to="/board">Board</NavLink>
   </Navigation>
 )
 
@@ -14,7 +13,8 @@ const Navigation = styled.div`
   display: flex;
 
   a {
-    width: 33.33vw;
+    font-size: 20px;
+    width: 50vw;
     color: #ffffff;
     background-color: #8063FA;
     padding: 12px 15px;

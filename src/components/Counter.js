@@ -21,10 +21,11 @@ const Counter = (props) => {
 }
 
 const ModifierButtons = styled.div`
+height: 100%;
 
 button {
   width: 40px;
-  height: 40px;
+  height: 100%;
   background-color: #E3E3E3;
   color: #8B8B8D;
   font-weight: bold;
@@ -32,6 +33,10 @@ button {
   border: 0;
   cursor: pointer;
   transition: background-color .1s;
+
+  :focus {
+    outline: none;
+  }
 
   &.decrement {
     :hover {
@@ -53,9 +58,9 @@ button {
   text-align: center;
   padding-right: 15px;
   padding-left: 15px;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Montserrat', 'sans-serif';
-  min-width: 55px;
+  min-width: 65px;
 }
 `
 

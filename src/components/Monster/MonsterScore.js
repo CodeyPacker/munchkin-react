@@ -29,7 +29,7 @@ const ScoreContainer = styled.div`
 
 const Score = styled.p`
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   font-family: 'Montserrat', 'sans-serif';
   margin-bottom: 0;
 `
