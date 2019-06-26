@@ -10,10 +10,22 @@ const PlayerBase = (props) => {
       { ({ players }) => (
         <PlayerWrapper>
           <PlayerImage src={PlayerImg} alt="Player image"/>
-          <h2>Level</h2>
-          <CounterWrapper>
-            <Counter index={0} modifier="baseScore"/>
-          </CounterWrapper>
+
+          <h2 className="total-base-score">{`Total: ${players[0].level + players[0].equipment}`}</h2>
+
+          <div className="counter-container">
+            <h2 className="score-title">Level</h2>
+            <CounterWrapper>
+              <Counter index={0} modifier="level"/>
+            </CounterWrapper>
+          </div>
+
+          <div className="counter-container">
+            <h2 className="score-title">Equipment</h2>
+            <CounterWrapper>
+              <Counter modifier="equipment"/>
+            </CounterWrapper>
+          </div>
         </PlayerWrapper>
       )}
     </Consumer>
@@ -25,10 +37,31 @@ const PlayerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   height: calc(100% - 150px);
-  margin-right: 15px;
-  margin-left: 15px;
   text-align: center;
   color: #4C4C4D;
+
+  .counter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-bottom: 1px solid #EEEEEE;
+
+    :first-of-type {
+      border-top: 1px solid #EEEEEE;
+    }
+  }
+
+  .score-title {
+    margin-bottom: 0;
+  }
+
+  .total-base-score {
+    border-bottom: 5px solid #8063FA;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
 `
 
 const PlayerImage = styled.img`

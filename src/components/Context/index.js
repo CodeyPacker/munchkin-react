@@ -8,15 +8,17 @@ export class Provider extends Component {
     players: [
       {
         name: "Player 1",
-        baseScore: 1,
+        level: 1,
         oneShotItems: 0,
+        equipment: 0,
         totalScore: 0,
         id: 1
       },
       {
         name: "Player 2",
-        baseScore: 1,
+        level: 1,
         oneShotItems: 0,
+        equipment: 0,
         totalScore: 0,
         id: 2
       }
@@ -35,9 +37,24 @@ export class Provider extends Component {
  prevPlayerId = 1;
 
  handleScoreChange = (index, delta, modifier) => {
-  this.setState( prevState => ({
-    baseScore: prevState.players[index][modifier] += delta
-  }));
+    if (modifier === "level") {
+      this.setState( prevState => ({
+        modifier: prevState.players[index][modifier] += delta
+      }));
+    }
+
+    if (modifier === "oneShotItems") {
+      this.setState( prevState => ({
+        oneShotItems: prevState.players[index][modifier] += delta
+      }));
+    }
+
+    // equipment will ALWAYS be based on the first player [0]
+    if (modifier === "equipment") {
+      this.setState( prevState => ({
+        equipment: prevState.players[0][modifier] += delta
+      }));
+    }
  }
 
   render() {

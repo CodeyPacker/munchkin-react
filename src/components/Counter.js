@@ -8,11 +8,10 @@ const Counter = (props) => {
       { ({ actions, players }) => (
         <ModifierButtons>
           <button className="counter-action decrement" onClick={() => actions.changeScore(props.index, -1, props.modifier)}> - </button>
-          {/* Check props to see if the counter is supposed to affect the baseScore or not */}
-          {props.modifier === "baseScore"
-            ? <span className="counter-score">{ players[props.index].baseScore }</span>
-            : <span className="counter-score total-score">{ players[props.index].baseScore + players[props.index].oneShotItems }</span>
-          }
+          {/* Check props to see if the counter is supposed to affect the level or not */}
+          { props.modifier === "level" ? <span className="counter-score">{ players[props.index].level }</span> : null }
+          { props.modifier === "equipment" ? <span className="counter-score total-score">{ players[0].equipment}</span> : null }
+          { props.modifier === "oneShotItems" ? <span className="counter-score total-score">{ players[props.index].level + players[props.index].oneShotItems + players[props.index].equipment }</span> : null }
           <button className="counter-action increment" onClick={() => actions.changeScore(props.index, 1, props.modifier)}> + </button>
         </ModifierButtons>
       )}

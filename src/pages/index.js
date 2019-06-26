@@ -22,7 +22,7 @@ function App() {
           <Route path="/battle" component={PlayerList}/>
           {/* <Route
             path="/battle"
-            render={(props) => <PlayerCounter modifier="baseScore" {...props}/>}
+            render={(props) => <PlayerCounter modifier="level" {...props}/>}
           /> */}
         </Container>
       </HashRouter>
