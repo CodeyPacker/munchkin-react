@@ -7,18 +7,18 @@ class Player extends PureComponent {
 
     const {
       name,
-      // id,
+      id,
       // score,
-      index
-      // removePlayer,
+      index,
+      removePlayer,
       // changeScore
     } = this.props;
 
     return (
       <PlayerWrapper className="player">
         <span className="player-name">
-          {/* <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> */}
           <p className="name">{ name }</p>
+          {id > 1 ? <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> : ''}
         </span>
 
         <Counter index={index} modifier="oneShotItems"/>
@@ -33,10 +33,40 @@ const PlayerWrapper = styled.div`
   align-items: stretch;
   justify-content: space-between;
   border-bottom: 1px solid #EEEEEE;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
   font-family: 'Montserrat', 'sans-serif';
   color: #4C4C4D;
+
+  .player-name {
+    display: flex;
+    ${'' /* position: relative; */}
+  }
+
+  .remove-player {
+    margin-left: 10px;
+    padding-right: 5px;
+    align-self: center;
+    font-size: 20px;
+    color: white;
+    background-color: white;
+    height: 25px;
+    border: 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #8063FA;
+    opacity: .5;
+    cursor: pointer;
+    transition: -webkit-text-stroke-width, color, opacity .2s;
+
+    :hover {
+      color: #8063FA;
+      opacity: 1;
+    }
+
+    :focus {
+      outline: none;
+    }
+  }
 
   .name {
     font-size: 25px;
