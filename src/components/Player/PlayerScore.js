@@ -15,8 +15,8 @@ const PlayerScore = () => {
           <img src={PlayerImage} alt="lol"/>
           <Score>
             {players.reduce(function(prev, cur) {
-              return prev += cur.baseScore + cur.oneShotItems;
-            }, 0)}
+              return prev += cur.level + cur.oneShotItems;
+            }, players[0].equipment)}
           </Score>
         </ScoreContainer>
       )}
