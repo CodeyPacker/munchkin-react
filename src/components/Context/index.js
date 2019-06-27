@@ -13,14 +13,6 @@ export class Provider extends Component {
         equipment: 0,
         totalScore: 0,
         id: 1
-      },
-      {
-        name: "Player 2",
-        level: 1,
-        oneShotItems: 0,
-        equipment: 0,
-        totalScore: 0,
-        id: 2
       }
     ],
     monsters: [
@@ -35,6 +27,30 @@ export class Provider extends Component {
 
  // player id counter
  prevPlayerId = 1;
+
+  // handleAddPlayer = () => {
+  //   this.setState( prevState => {
+  //     return {
+  //       players: [
+  //         ...prevState.players,
+  //         {
+  //           name: 'player 2 lol',
+  //           score: 0,
+  //           id: this.prevPlayerId += 1
+  //         }
+  //       ]
+  //     };
+  //   });
+  // }
+
+
+  handleRemovePlayer = (id) => {
+    this.setState( prevState => {
+      return {
+        players: prevState.players.filter(p => p.id !== id)
+      };
+    });
+  }
 
  handleScoreChange = (index, delta, modifier) => {
     if (modifier === "level") {

@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 
 class Player extends PureComponent {
   render() {
-
     const {
       name,
       id,
@@ -40,7 +39,6 @@ const PlayerWrapper = styled.div`
 
   .player-name {
     display: flex;
-    ${'' /* position: relative; */}
   }
 
   .remove-player {
