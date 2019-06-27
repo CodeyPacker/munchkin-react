@@ -7,10 +7,8 @@ class Player extends PureComponent {
     const {
       name,
       id,
-      // score,
       index,
       removePlayer,
-      // changeScore
     } = this.props;
 
     return (
@@ -39,10 +37,13 @@ const PlayerWrapper = styled.div`
 
   .player-name {
     display: flex;
+    width: 100%;
+    line-height: 28px;
+    padding-right: 15px;
   }
 
   .remove-player {
-    margin-left: 10px;
+    margin-left: auto;
     padding-right: 5px;
     align-self: center;
     font-size: 20px;
