@@ -54,7 +54,7 @@ const StartInput = styled.input`
   margin: 15px auto;
   padding: 5px;
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', 'sans-serif';
   border: 2px solid #5d2ae5;
   border-radius: 5px;
 `
@@ -74,7 +74,7 @@ const Suggestion = styled.button`
   border-radius: 5px;
   background-color: #5d2ae5;
   border: 1px solid #5d2ae5;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', 'sans-serif';
 `
 
 export default SearchMonster

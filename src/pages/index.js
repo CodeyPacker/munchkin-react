@@ -7,23 +7,25 @@ import FeatureScores from '../components/FeatureScoresLayout'
 import PlayerBase from '../components/Player/PlayerBase'
 import { Provider } from '../components/Context'
 import PlayerList from '../components/Player/PlayerList'
+import AddPlayer from '../components/Player/AddPlayer'
 
 function App() {
   return (
     <Provider>
       <HashRouter>
         <Container>
-          <Route path="/" component={Header}/>
-          <Route exact path="/battle" component={FeatureScores}/>
+          <Route path="/" component={Header} />
+          <Route exact path="/battle" component={FeatureScores} />
           <Route
             exact path="/"
             component={PlayerBase}
           />
-          <Route path="/battle" component={PlayerList}/>
+          <Route path="/battle" component={PlayerList} />
           {/* <Route
             path="/battle"
             render={(props) => <PlayerCounter modifier="level" {...props}/>}
           /> */}
+          <Route path="/battle" component={AddPlayer} />
         </Container>
       </HashRouter>
     </Provider>

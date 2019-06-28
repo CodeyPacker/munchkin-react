@@ -1563,7 +1563,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+3 against Navy. He is a \"loan shark\", so he counts as a shark.",
-  bad: 
+  bad:
     "Ye wanna sleep wit' da fishies? He can arrange it. Reduce yer Level to that of the lowest-Level player."
 },
 {
@@ -1574,7 +1574,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "He loves an audience. He gets +10 if in the same combat with the Privatears.",
-  bad: 
+  bad:
     "Sing along until ye lose yer Accent. Discard all Accent cards."
 },
 {
@@ -1585,7 +1585,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "-3 against Merchants.",
-  bad: 
+  bad:
     "Discod a card. Err, discard a cod. Blimey! Discard a card."
 },
 {
@@ -1596,7 +1596,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+4 against males.",
-  bad: 
+  bad:
     "Males lose their Armor and Footgear, but she lets them keep their hats on. Females just lose a level."
 },
 {
@@ -1607,7 +1607,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "-4 against French. Sacre bleu!",
-  bad: 
+  bad:
     "It takes a perfectly good bite out of ye. Lose a level."
 },
 {
@@ -1618,7 +1618,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+5 against British. -2 against Dutch.",
-  bad: 
+  bad:
     "If ye has more than one Accent, or more than one Class, ye must discard one Accent or Class."
 },
 {
@@ -1629,7 +1629,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+3 against Merchants. Dirty capitalists.",
-  bad: 
+  bad:
     "Ye must give him one Item requiring Hands. If ye has none, lose a level."
 },
 {
@@ -1640,7 +1640,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "-2 against British. And, of course, he counts as a Shark.",
-  bad: 
+  bad:
     "Ye suffer the effects of the top Curse in the discards. If that Curse does not affect ye, lose a level. If there is no Curse in the discards, ye gets away on a technicality and may draw a treasure."
 },
 {
@@ -1651,7 +1651,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "If ye defeat it, then instead of killing it to go up a level, ye can keep it as a Ship Enhancer to fill yer sails with wind. It gives one ship a +2 bonus. Yes, ye gets its Treasures either way.",
-  bad: 
+  bad:
     "Blows ye away! Lose yer smallest Ship, or lose a level if ye has no Ship."
 },
 {
@@ -1662,7 +1662,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+2 against British. -3 against Navy.",
-  bad: 
+  bad:
     "Lose either yer Armor or yer Footgear. Ye get to choose which."
 },
 {
@@ -1673,7 +1673,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "-4 against Merchants. -4 against Spanish.",
-  bad: 
+  bad:
     "Give two cards to the player on yer right. He must give ye one card in return."
 },
 {
@@ -1684,7 +1684,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+5 against Dutch. -2 against French. Yer Ship(s) do not help ye in this battle.",
-  bad: 
+  bad:
     "Lose one Ship, unless yer accent is Dutch. In that case, it saws yer shoes apart. Lose yer Footgear."
 },
 {
@@ -1695,7 +1695,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+3 against males. +3 against Navy.",
-  bad: 
+  bad:
     "She likes yer hat. Lose yer Headgear. If ye has no Headgear, lose a level and discard a card."
 },
 {
@@ -1706,7 +1706,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+3 against Pirates. -2 against Spanish.",
-  bad: 
+  bad:
     "They needs boots, arrr! Lose yer Footgear. If ye has no Footgear, lose a level instead."
 },
 {
@@ -1717,7 +1717,7 @@ const MonsterData = [{
   levels: 1,
   abilities:
     "+5 against Spanish. If ye be British, no battle can ensue. Instead, he gives ye a gift... draw a Treasure.",
-  bad: 
+  bad:
     "Ye be disarmored. Lose yer Armor. If ye has no Armor, lose a level."
 },
 {
@@ -1728,7 +1728,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "-3 against Pirates. +4 against Merchants. Will not pursue anyone of Level 3 or below.",
-  bad: 
+  bad:
     "Ye are plundered! Lose yer Ship and any two other items."
 },
 {
@@ -1739,7 +1739,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "If the Snark is in the combat, any player may exchange it for this card, turning the Snark into a Boojum.",
-  bad: 
+  bad:
     "Ye are softly and silently vanished away. Ye are dead. Should ye encounter a Snark later, ye must Run Away without trying to fight."
 },
 {
@@ -1750,7 +1750,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "-4 against Navy. Will not pursue anyone of Level 3 or below.",
-  bad: 
+  bad:
     "Lose two levels. But if either the \"Wooden Leg\" or the \"Hook\" is in the discards, ye may choose one and take it."
 },
 {
@@ -1761,7 +1761,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "-4 against British or Dutch. Will not pursue anyone of Level 4 or below.",
-  bad: 
+  bad:
     "Swallowed! Lose two levels."
 },
 {
@@ -1772,7 +1772,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "-4 against Pirates. Ships count double against it.",
-  bad: 
+  bad:
     "Lose a Ship. If ye have no ship, ye are dead."
 },
 {
@@ -1783,7 +1783,7 @@ const MonsterData = [{
   levels: 2,
   abilities:
     "Will not pursue anyone of Level 5 or below.",
-  bad: 
+  bad:
     "Ye are dead, dead, drowndead. But if ye had any of Davy Jones' items when ye went down, each one gives ye an extra level when ye return."
 }
 ];

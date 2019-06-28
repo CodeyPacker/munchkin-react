@@ -4,21 +4,18 @@ import styled from '@emotion/styled'
 
 class Player extends PureComponent {
   render() {
-
     const {
       name,
-      // id,
-      // score,
-      index
-      // removePlayer,
-      // changeScore
+      id,
+      index,
+      removePlayer,
     } = this.props;
 
     return (
       <PlayerWrapper className="player">
         <span className="player-name">
-          {/* <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> */}
           <p className="name">{ name }</p>
+          {id > 1 ? <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> : ''}
         </span>
 
         <Counter index={index} modifier="oneShotItems"/>
@@ -33,10 +30,42 @@ const PlayerWrapper = styled.div`
   align-items: stretch;
   justify-content: space-between;
   border-bottom: 1px solid #EEEEEE;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
   font-family: 'Montserrat', 'sans-serif';
   color: #4C4C4D;
+
+  .player-name {
+    display: flex;
+    width: 100%;
+    line-height: 28px;
+    padding-right: 15px;
+  }
+
+  .remove-player {
+    margin-left: auto;
+    padding-right: 5px;
+    align-self: center;
+    font-size: 20px;
+    color: white;
+    background-color: white;
+    height: 25px;
+    border: 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #F9A7A7;
+    opacity: .5;
+    cursor: pointer;
+    transition: -webkit-text-stroke-width, color, opacity .2s;
+
+    :hover {
+      color: #F9A7A7;
+      opacity: 1;
+    }
+
+    :focus {
+      outline: none;
+    }
+  }
 
   .name {
     font-size: 25px;

@@ -20,37 +20,40 @@ const Counter = (props) => {
 }
 
 const ModifierButtons = styled.div`
-height: 100%;
-
-button {
-  width: 40px;
   height: 100%;
-  background-color: #E3E3E3;
-  color: #8B8B8D;
-  font-weight: bold;
-  font-size: 25px;
-  border: 0;
-  cursor: pointer;
-  transition: background-color .1s;
+  display: flex;
+  align-items: center;
+  flex-wrap: no-wrap;
 
-  :focus {
-    outline: none;
-  }
+  button {
+    width: 40px;
+    height: 100%;
+    background-color: #E3E3E3;
+    color: #8B8B8D;
+    font-weight: bold;
+    font-size: 25px;
+    border: 0;
+    cursor: pointer;
+    transition: background-color .1s;
 
-  &.decrement {
-    :hover {
-      background-color: red;
-      color: white;
+    :focus {
+      outline: none;
+    }
+
+    &.decrement {
+      :hover {
+        background-color: #F9A7A7;
+        color: white;
+      }
+    }
+
+    &.increment {
+      :hover {
+        background-color: #7DD49B;
+        color: white;
+      }
     }
   }
-
-  &.increment {
-    :hover {
-      background-color: green;
-      color: white;
-    }
-  }
-}
 
 .counter-score {
   display: inline-block;
