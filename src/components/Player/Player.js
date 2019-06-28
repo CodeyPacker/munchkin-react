@@ -52,13 +52,13 @@ const PlayerWrapper = styled.div`
     height: 25px;
     border: 0;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #8063FA;
+    -webkit-text-stroke-color: #F9A7A7;
     opacity: .5;
     cursor: pointer;
     transition: -webkit-text-stroke-width, color, opacity .2s;
 
     :hover {
-      color: #8063FA;
+      color: #F9A7A7;
       opacity: 1;
     }
 

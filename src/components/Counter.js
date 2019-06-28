@@ -42,14 +42,14 @@ const ModifierButtons = styled.div`
 
     &.decrement {
       :hover {
-        background-color: red;
+        background-color: #F9A7A7;
         color: white;
       }
     }
 
     &.increment {
       :hover {
-        background-color: green;
+        background-color: #7DD49B;
         color: white;
       }
     }

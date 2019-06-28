@@ -24,20 +24,19 @@ export class Provider extends Component {
       }
     ],
     playerAdjectives: [
-      'Cool', 'Rad', 'Bestie', 'Bae', 'Boring', 'Basic', 'Entire', 'Sappy', 'Happy', 'Sudden', 'Ugly', 'Guilty', 'Hungry', 'Pregnant', 'Willing', 'Famous', 'Distinct', 'Mental', 'Pleasant', 'Wooden', 'Alive', 'Southern', 'Nervous', 'Afraid', 'Healthy', 'Legal', 'Latter', 'Unfair', 'Decent',
+      'Cool', 'Rad', 'Bestie', 'Boring', 'Basic', 'Entire', 'Sappy', 'Happy', 'Sudden', 'Ugly', 'Guilty', 'Hungry', 'Pregnant', 'Willing', 'Famous', 'Distinct', 'Mental', 'Pleasant', 'Wooden', 'Alive', 'Southern', 'Nervous', 'Afraid', 'Healthy', 'Legal', 'Latter', 'Unfair', 'Decent',
       'Tiny', 'Baby', 'Alive', 'Killer', 'Unfair'
     ],
     playerNouns: [
       'ladder', 'worker', 'friend', 'enemy', 'pet', 'poetry', 'movie', 'uncle', 'oven', 'queen', 'nature', 'advice', 'river', 'gf', 'bf', 'driver', 'army', 'idea', 'music', 'virus', 'ball', 'mallet', 'waffle', 'pants', 'brush', 'thoughts', 'saint', 'person', 'being',
       'mouse', 'concept', 'dragon', 'sword', 'walrus'
     ]
-
   };
 
- // player id counter
- prevPlayerId = this.state.players.length;
+  // player id counter
+  prevPlayerId = this.state.players.length;
 
- handleAddPlayer = () => {
+  handleAddPlayer = () => {
     const playerAdjectives = this.state.playerAdjectives
     const playerNouns = this.state.playerNouns
     this.setState( prevState => {
