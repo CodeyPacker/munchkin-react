@@ -6,7 +6,6 @@ const AddPlayer = () => (
   <Consumer>
     { context => (
       <AddPlayerWrapper>
-        {console.log(context.actions.addPlayer)}
         <button onClick={context.actions.addPlayer}>Add Player</button>
       </AddPlayerWrapper>
     )}

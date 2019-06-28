@@ -89,7 +89,6 @@ export class Provider extends Component {
 
   generateRandomWord = (word) => {
     const randomNumber = Math.floor(Math.random() * word.length);
-    console.log(word[randomNumber])
     return word[randomNumber]
     // this.state.type[random]
   }
