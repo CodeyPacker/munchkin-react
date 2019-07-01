@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Consumer } from '../Context';
-import Counter from '../Counter'
+import PlayerCounter from '../Player/PlayerCounter'
 import PlayerImg from '../../images/player.svg'
 
 const PlayerBase = (props) => {
@@ -16,14 +16,14 @@ const PlayerBase = (props) => {
           <div className="counter-container">
             <h2 className="score-title">Level</h2>
             <CounterWrapper>
-              <Counter index={0} modifier="level"/>
+              <PlayerCounter index={0} modifier="level"/>
             </CounterWrapper>
           </div>
 
           <div className="counter-container">
             <h2 className="score-title">Equipment</h2>
             <CounterWrapper>
-              <Counter modifier="equipment"/>
+              <PlayerCounter modifier="equipment"/>
             </CounterWrapper>
           </div>
         </PlayerWrapper>

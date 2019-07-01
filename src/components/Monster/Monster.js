@@ -1,31 +1,30 @@
 import React, { PureComponent } from 'react';
-import PlayerCounter from './PlayerCounter';
+import MonsterCounter from '../Monster/MonsterCounter';
 import styled from '@emotion/styled'
 
-class Player extends PureComponent {
+class Monster extends PureComponent {
   render() {
     const {
       name,
       id,
       index,
-      removePlayer,
+      removeMonster,
     } = this.props;
 
     return (
-      <PlayerWrapper className="player">
-        <span className="player-name">
+      <MonsterWrapper className="monster">
+        <span className="monster-name">
           <p className="name">{ name }</p>
-          {id > 1 ? <button className="remove-player" onClick={() => removePlayer(id)}>✖</button> : ''}
+          <button className="remove-monster" onClick={() => removeMonster(id)}>✖</button>
         </span>
 
-        <PlayerCounter index={index} modifier="oneShotItems"/>
-
-      </PlayerWrapper>
+        <MonsterCounter index={index} modifier="oneShotItems"/>
+      </MonsterWrapper>
     );
   }
 }
 
-const PlayerWrapper = styled.div`
+const MonsterWrapper = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -35,14 +34,14 @@ const PlayerWrapper = styled.div`
   font-family: 'Montserrat', 'sans-serif';
   color: #4C4C4D;
 
-  .player-name {
+  .monster-name {
     display: flex;
     width: 100%;
     line-height: 28px;
     padding-right: 15px;
   }
 
-  .remove-player {
+  .remove-monster {
     margin-left: auto;
     padding-right: 5px;
     align-self: center;
@@ -74,4 +73,4 @@ const PlayerWrapper = styled.div`
     padding-bottom: 20px;
   }
 `
-export default Player;
+export default Monster;

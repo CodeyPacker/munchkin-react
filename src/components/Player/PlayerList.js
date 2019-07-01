@@ -12,7 +12,7 @@ const PlayerList = () => {
               {...player}
               key={player.id.toString()}
               index={index}
-              changeScore={context.changeScore}
+              changePlayerScore={context.changePlayerScore}
               removePlayer={context.actions.removePlayer}
             />
           )}

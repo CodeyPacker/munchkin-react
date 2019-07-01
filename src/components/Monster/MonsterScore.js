@@ -15,7 +15,7 @@ const MonsterScore = () => {
           {/* <Score>{monsters[0].score}</Score> */}
           <Score>
           {monsters.reduce(function(prev, cur) {
-              return prev += cur.power;
+              return prev += cur.power + cur.oneShotItems;
             }, 0)}
           </Score>
         </ScoreContainer>
@@ -23,7 +23,6 @@ const MonsterScore = () => {
     </Consumer>
   )
 }
-
 
 const ScoreContainer = styled.div`
 

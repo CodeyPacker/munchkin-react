@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled'
-import { Consumer } from '../components/Context';
+import { Consumer } from '../Context';
 
-const Counter = (props) => {
+const PlayerCounter = (props) => {
   return (
     <Consumer>
       { ({ actions, players }) => (
         <ModifierButtons>
-          <button className="counter-action decrement" onClick={() => actions.changeScore(props.index, -1, props.modifier)}> - </button>
+          <button className="counter-action decrement" onClick={() => actions.changePlayerScore(props.index, -1, props.modifier)}> - </button>
           {/* Check props to see if the counter is supposed to affect the level or not */}
           { props.modifier === "level" ? <span className="counter-score">{ players[props.index].level }</span> : null }
           { props.modifier === "equipment" ? <span className="counter-score total-score">{ players[0].equipment}</span> : null }
           { props.modifier === "oneShotItems" ? <span className="counter-score total-score">{ players[props.index].level + players[props.index].oneShotItems + players[props.index].equipment }</span> : null }
-          <button className="counter-action increment" onClick={() => actions.changeScore(props.index, 1, props.modifier)}> + </button>
+          <button className="counter-action increment" onClick={() => actions.changePlayerScore(props.index, 1, props.modifier)}> + </button>
         </ModifierButtons>
       )}
     </Consumer>
@@ -66,4 +66,4 @@ const ModifierButtons = styled.div`
 }
 `
 
-export default Counter;
+export default PlayerCounter;
