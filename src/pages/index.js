@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-// import SearchMonster from '../components/FormContainer'
 import Header from '../components/Header'
 import {HashRouter, Route} from 'react-router-dom'
 import FeatureScores from '../components/FeatureScoresLayout'
@@ -8,6 +7,8 @@ import PlayerBase from '../components/Player/PlayerBase'
 import { Provider } from '../components/Context'
 import PlayerList from '../components/Player/PlayerList'
 import AddPlayer from '../components/Player/AddPlayer'
+import MonsterSearch from '../components/Monster/MonsterSearch'
+import MonsterSuggestions from '../components/Monster/MonsterSuggestions';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             render={(props) => <PlayerCounter modifier="level" {...props}/>}
           /> */}
           <Route path="/battle" component={AddPlayer} />
+          <Route path="/" component={MonsterSearch} />
+          <Route path="/" component={MonsterSuggestions} />
+          {/* <Monsters /> */}
         </Container>
       </HashRouter>
     </Provider>

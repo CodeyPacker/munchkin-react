@@ -16,6 +16,7 @@
     "gatsby-plugin-sharp": "^2.0.12",
     "gatsby-plugin-typography": "^2.2.13",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.8",
     "react": "^16.6.3",
     "react-card-flip": "^0.3.0",
