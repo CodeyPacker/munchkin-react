@@ -8,6 +8,7 @@ import { Provider } from '../components/Context'
 import PlayerList from '../components/Player/PlayerList'
 import AddPlayer from '../components/Player/AddPlayer'
 import MonsterSearch from '../components/Monster/MonsterSearch'
+import MonsterSuggestions from '../components/Monster/MonsterSuggestions';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           /> */}
           <Route path="/battle" component={AddPlayer} />
           <Route path="/" component={MonsterSearch} />
+          <Route path="/" component={MonsterSuggestions} />
           {/* <Monsters /> */}
         </Container>
       </HashRouter>
