@@ -22,13 +22,13 @@ function App() {
             component={PlayerBase}
           />
           <Route path="/battle" component={PlayerList} />
+          <Route path="/" component={MonsterSearch} />
+          <Route path="/" component={MonsterSuggestions} />
           {/* <Route
             path="/battle"
             render={(props) => <PlayerCounter modifier="level" {...props}/>}
           /> */}
           <Route path="/battle" component={AddPlayer} />
-          <Route path="/" component={MonsterSearch} />
-          <Route path="/" component={MonsterSuggestions} />
           {/* <Monsters /> */}
         </Container>
       </HashRouter>

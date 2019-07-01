@@ -12,7 +12,12 @@ const MonsterScore = () => {
       { ({ monsters }) => (
         <ScoreContainer>
           <img src={MonsterImage} alt="lol"/>
-          <Score>{monsters[0].score}</Score>
+          {/* <Score>{monsters[0].score}</Score> */}
+          <Score>
+          {monsters.reduce(function(prev, cur) {
+              return prev += cur.power;
+            }, 0)}
+          </Score>
         </ScoreContainer>
       )}
     </Consumer>

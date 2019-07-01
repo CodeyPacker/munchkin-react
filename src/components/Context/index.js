@@ -40,9 +40,12 @@ export class Provider extends Component {
     this.monsterName = e.currentTarget.value
     this.monsterArray = [...data.allMonstersJson.edges].map(item => item.node.name)
     console.log(data)
-
     // CALLS THE FINDMATCHES FUNCTION AND PASSES IN THE USERS INPUT AND THE MONSTER ARRAY
-    const matchArray = this.findMatches(e.target.value, this.monsterArray);
+    let matchArray = this.findMatches(e.target.value, this.monsterArray)
+    // removes the suggestion component if input is empty
+    e.currentTarget.value === '' || e.currentTarget.value === ' '
+    ? matchArray = []
+    : this.findMatches(e.target.value, this.monsterArray)
 
     this.setState({
       [e.target.name]: e.target.value.toLowerCase(),
@@ -123,6 +126,7 @@ export class Provider extends Component {
 
     this.setState( prevState => {
       return {
+        matchedMonsters: [],
         monsters: [
           ...prevState.monsters,
           {
