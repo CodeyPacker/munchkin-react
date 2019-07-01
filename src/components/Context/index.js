@@ -30,11 +30,33 @@ export class Provider extends Component {
     playerNouns: [
       'ladder', 'worker', 'friend', 'enemy', 'pet', 'poetry', 'movie', 'uncle', 'oven', 'queen', 'nature', 'advice', 'river', 'gf', 'bf', 'driver', 'army', 'idea', 'music', 'virus', 'ball', 'mallet', 'waffle', 'pants', 'brush', 'thoughts', 'saint', 'person', 'being',
       'mouse', 'concept', 'dragon', 'sword', 'walrus'
-    ]
-  };
+    ],
+    monsterName: '',
+    monsterArray: [],
+    monsterQuery: [],
+    matchedMonsters: [],
+    activeMonsters: []
+  }
 
   // player id counter
   prevPlayerId = this.state.players.length;
+
+  handleMonsterInput = (e, data) => {
+    console.log(e.currentTarget.value)
+    this.monsterName = e.currentTarget.value
+    this.monsterArray = [...data.allMonstersJson.edges].map(item => item.node.name)
+    console.log(data)
+
+    // CALLS THE FINDMATCHES FUNCTION AND PASSES IN THE USERS INPUT AND THE MONSTER ARRAY
+    const matchArray = this.findMatches(e.target.value, this.monsterArray);
+    console.log(matchArray)
+
+    this.setState({
+      [e.target.name]: e.target.value.toLowerCase(),
+      // SETS THE NEW ARRAY TO A MAX LENGTH OF 5
+      matchedMonsters: matchArray.slice(0, 5),
+    })
+  }
 
   handleAddPlayer = () => {
     const playerAdjectives = this.state.playerAdjectives
@@ -55,7 +77,6 @@ export class Provider extends Component {
       };
     });
   }
-
 
   handleRemovePlayer = (id) => {
     this.prevPlayerId -= 1;
@@ -93,6 +114,13 @@ export class Provider extends Component {
     // this.state.type[random]
   }
 
+  findMatches(wordToMatch, monsterData) {
+    return monsterData.filter(monster => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return monster.match(regex)
+    });
+  }
+
 
   render() {
     return (
@@ -102,7 +130,9 @@ export class Provider extends Component {
         actions: {
           changeScore: this.handleScoreChange,
           removePlayer: this.handleRemovePlayer,
-          addPlayer: this.handleAddPlayer
+          addPlayer: this.handleAddPlayer,
+          monsterChange: this.handleMonsterInput,
+          findMatches: this.findMatches
         }
       }}>
         { this.props.children }
