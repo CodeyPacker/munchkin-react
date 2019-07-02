@@ -6,9 +6,10 @@ import FeatureScores from '../components/FeatureScoresLayout'
 import PlayerBase from '../components/Player/PlayerBase'
 import { Provider } from '../components/Context'
 import PlayerList from '../components/Player/PlayerList'
+import MonsterList from '../components/Monster/MonsterList'
 import AddPlayer from '../components/Player/AddPlayer'
 import MonsterSearch from '../components/Monster/MonsterSearch'
-import MonsterSuggestions from '../components/Monster/MonsterSuggestions';
+// import MonsterSuggestions from '../components/Monster/MonsterSuggestions';
 
 function App() {
   return (
@@ -16,20 +17,12 @@ function App() {
       <HashRouter>
         <Container>
           <Route path="/" component={Header} />
-          <Route exact path="/battle" component={FeatureScores} />
-          <Route
-            exact path="/"
-            component={PlayerBase}
-          />
+          <Route path="/battle" exact component={FeatureScores} />
+          <Route path="/" exact component={PlayerBase} />
           <Route path="/battle" component={PlayerList} />
-          {/* <Route
-            path="/battle"
-            render={(props) => <PlayerCounter modifier="level" {...props}/>}
-          /> */}
+          <Route path="/battle" component={MonsterSearch} />
+          <Route path="/battle" component={MonsterList} />
           <Route path="/battle" component={AddPlayer} />
-          <Route path="/" component={MonsterSearch} />
-          <Route path="/" component={MonsterSuggestions} />
-          {/* <Monsters /> */}
         </Container>
       </HashRouter>
     </Provider>
@@ -40,5 +33,6 @@ export default App
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-min-height: 100vh;
   height: 100vh;
 `

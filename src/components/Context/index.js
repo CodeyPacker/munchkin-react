@@ -7,7 +7,7 @@ export class Provider extends Component {
   state = {
     players: [
       {
-        name: "Me, lol",
+        name: "Munchkin",
         level: 1,
         oneShotItems: 0,
         equipment: 0,
@@ -15,9 +15,7 @@ export class Provider extends Component {
         id: 1
       }
     ],
-    monsters: [
-
-    ],
+    monsters: [],
     playerAdjectives: [
       'Cool', 'Rad', 'Bestie', 'Boring', 'Basic', 'Entire', 'Sappy', 'Happy', 'Sudden', 'Ugly', 'Guilty', 'Hungry', 'Pregnant', 'Willing', 'Famous', 'Distinct', 'Mental', 'Pleasant', 'Wooden', 'Alive', 'Southern', 'Nervous', 'Afraid', 'Healthy', 'Legal', 'Latter', 'Unfair', 'Decent',
       'Tiny', 'Baby', 'Alive', 'Killer', 'Unfair'
@@ -33,40 +31,44 @@ export class Provider extends Component {
     monsterIndex: ''
   }
 
-  // player id counter
-  prevPlayerId = this.state.players.length;
+  // player & monster id counter
+  prevPlayerId = 1;
+  prevMonsterId = 0;
 
   handleMonsterInput = (e, data) => {
     this.monsterName = e.currentTarget.value
     this.monsterArray = [...data.allMonstersJson.edges].map(item => item.node.name)
-    console.log(data)
-
     // CALLS THE FINDMATCHES FUNCTION AND PASSES IN THE USERS INPUT AND THE MONSTER ARRAY
-    const matchArray = this.findMatches(e.target.value, this.monsterArray);
+    let matchArray = this.findMatches(e.target.value, this.monsterArray)
+    // removes the suggestion component if input is empty
+    e.currentTarget.value === '' || e.currentTarget.value === ' '
+    ? matchArray = []
+    : this.findMatches(e.target.value, this.monsterArray)
 
     this.setState({
       [e.target.name]: e.target.value.toLowerCase(),
       // SETS THE NEW ARRAY TO A MAX LENGTH OF 5
-      matchedMonsters: matchArray.slice(0, 5),
+      matchedMonsters: matchArray.slice(0, 3),
       monsterArray : [...data.allMonstersJson.edges].map(item => item.node.name),
       monsterQuery : data.allMonstersJson.edges
     })
   }
 
   handleAddPlayer = () => {
-    const playerAdjectives = this.state.playerAdjectives
-    const playerNouns = this.state.playerNouns
+    // const playerAdjectives = this.state.playerAdjectives
+    // const playerNouns = this.state.playerNouns
     this.setState( prevState => {
       return {
         players: [
           ...prevState.players,
           {
-            name: `${this.generateRandomWord(playerAdjectives)} ${this.generateRandomWord(playerNouns)}`,
+            // name: `${this.generateRandomWord(playerAdjectives)} ${this.generateRandomWord(playerNouns)}`,
+            name: `Friend`,
             level: 1,
             oneShotItems: 0,
             equipment: 0,
             totalScore: 1,
-            id: this.state.players.length + 1
+            id: this.prevPlayerId += 1
           }
         ]
       };
@@ -74,7 +76,6 @@ export class Provider extends Component {
   }
 
   handleRemovePlayer = (id) => {
-    this.prevPlayerId -= 1;
     this.setState( prevState => {
       return {
         players: prevState.players.filter(p => p.id !== id)
@@ -82,7 +83,15 @@ export class Provider extends Component {
     });
   }
 
-  handleScoreChange = (index, delta, modifier) => {
+  handleRemoveMonster = (id) => {
+    this.setState( prevState => {
+      return {
+        monsters: prevState.monsters.filter(p => p.id !== id)
+      };
+    });
+  }
+
+  handlePlayerScoreChange = (index, delta, modifier) => {
     if (modifier === "level") {
       this.setState( prevState => ({
         modifier: prevState.players[index][modifier] += delta
@@ -101,6 +110,12 @@ export class Provider extends Component {
         equipment: prevState.players[0][modifier] += delta
       }));
     }
+  }
+
+  handleMonsterScoreChange = (index, delta, modifier) => {
+    this.setState( prevState => ({
+      oneShotItems: prevState.monsters[index][modifier] += delta
+    }));
   }
 
   generateRandomWord = (word) => {
@@ -123,6 +138,7 @@ export class Provider extends Component {
 
     this.setState( prevState => {
       return {
+        matchedMonsters: [],
         monsters: [
           ...prevState.monsters,
           {
@@ -132,15 +148,14 @@ export class Provider extends Component {
             levels: activeMonster.levels,
             power: activeMonster.power,
             set: activeMonster.set,
-            treasures: activeMonster.treasure
+            treasures: activeMonster.treasure,
+            oneShotItems: 0,
+            id: this.prevMonsterId += 1
           }
         ]
       }
     })
-
-    console.log(this.state.monsters)
   }
-
 
   render() {
     return (
@@ -149,8 +164,10 @@ export class Provider extends Component {
         monsters: this.state.monsters,
         matchedMonsters: this.state.matchedMonsters,
         actions: {
-          changeScore: this.handleScoreChange,
+          changePlayerScore: this.handlePlayerScoreChange,
+          changeMonsterScore: this.handleMonsterScoreChange,
           removePlayer: this.handleRemovePlayer,
+          removeMonster: this.handleRemoveMonster,
           addPlayer: this.handleAddPlayer,
           monsterChange: this.handleMonsterInput,
           findMatches: this.findMatches,
@@ -164,4 +181,3 @@ export class Provider extends Component {
 }
 
 export const Consumer = ScoreboardContext.Consumer;
-
