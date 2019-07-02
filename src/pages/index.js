@@ -21,7 +21,6 @@ function App() {
           <Route path="/" exact component={PlayerBase} />
           <Route path="/battle" component={PlayerList} />
           <Route path="/battle" component={MonsterSearch} />
-          {/* <Route path="/battle" component={MonsterSuggestions} /> */}
           <Route path="/battle" component={MonsterList} />
           <Route path="/battle" component={AddPlayer} />
         </Container>

@@ -102,6 +102,9 @@ const Suggestion = styled.button`
   background-color: #8063FA;
   border: 1px solid #8063FA;
   font-family: 'Montserrat', 'sans-serif';
+  :focus {
+    outline-color: #5B45B9;
+  }
 `
 
 
