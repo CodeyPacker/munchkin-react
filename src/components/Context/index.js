@@ -7,7 +7,7 @@ export class Provider extends Component {
   state = {
     players: [
       {
-        name: "Me, lol",
+        name: "Munchkin",
         level: 1,
         oneShotItems: 0,
         equipment: 0,
@@ -32,8 +32,8 @@ export class Provider extends Component {
   }
 
   // player & monster id counter
-  prevPlayerId = this.state.players.length;
-  prevMonsterId = this.state.monsters.length;
+  prevPlayerId = 1;
+  prevMonsterId = 0;
 
   handleMonsterInput = (e, data) => {
     this.monsterName = e.currentTarget.value
@@ -48,26 +48,27 @@ export class Provider extends Component {
     this.setState({
       [e.target.name]: e.target.value.toLowerCase(),
       // SETS THE NEW ARRAY TO A MAX LENGTH OF 5
-      matchedMonsters: matchArray.slice(0, 5),
+      matchedMonsters: matchArray.slice(0, 3),
       monsterArray : [...data.allMonstersJson.edges].map(item => item.node.name),
       monsterQuery : data.allMonstersJson.edges
     })
   }
 
   handleAddPlayer = () => {
-    const playerAdjectives = this.state.playerAdjectives
-    const playerNouns = this.state.playerNouns
+    // const playerAdjectives = this.state.playerAdjectives
+    // const playerNouns = this.state.playerNouns
     this.setState( prevState => {
       return {
         players: [
           ...prevState.players,
           {
-            name: `${this.generateRandomWord(playerAdjectives)} ${this.generateRandomWord(playerNouns)}`,
+            // name: `${this.generateRandomWord(playerAdjectives)} ${this.generateRandomWord(playerNouns)}`,
+            name: `Friend`,
             level: 1,
             oneShotItems: 0,
             equipment: 0,
             totalScore: 1,
-            id: this.state.players.length + 1
+            id: this.prevPlayerId += 1
           }
         ]
       };
@@ -75,7 +76,6 @@ export class Provider extends Component {
   }
 
   handleRemovePlayer = (id) => {
-    this.prevPlayerId -= 1;
     this.setState( prevState => {
       return {
         players: prevState.players.filter(p => p.id !== id)
@@ -84,7 +84,6 @@ export class Provider extends Component {
   }
 
   handleRemoveMonster = (id) => {
-    this.prevMonsterId -= 1;
     this.setState( prevState => {
       return {
         monsters: prevState.monsters.filter(p => p.id !== id)
@@ -151,7 +150,7 @@ export class Provider extends Component {
             set: activeMonster.set,
             treasures: activeMonster.treasure,
             oneShotItems: 0,
-            id: this.state.monsters.length + 1
+            id: this.prevMonsterId += 1
           }
         ]
       }

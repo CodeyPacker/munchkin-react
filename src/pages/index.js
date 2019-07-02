@@ -34,5 +34,6 @@ export default App
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-min-height: 100vh;
   height: 100vh;
 `

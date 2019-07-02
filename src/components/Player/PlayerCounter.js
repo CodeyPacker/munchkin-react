@@ -20,14 +20,14 @@ const PlayerCounter = (props) => {
 }
 
 const ModifierButtons = styled.div`
-  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  min-height: 100%;
   flex-wrap: no-wrap;
 
   button {
     width: 40px;
-    height: 100%;
+    min-height: 100%;
     background-color: #E3E3E3;
     color: #8B8B8D;
     font-weight: bold;
@@ -56,7 +56,9 @@ const ModifierButtons = styled.div`
   }
 
 .counter-score {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding-right: 15px;
   padding-left: 15px;

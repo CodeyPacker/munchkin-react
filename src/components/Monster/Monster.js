@@ -29,10 +29,11 @@ const MonsterWrapper = styled.div`
   align-items: stretch;
   justify-content: space-between;
   border-bottom: 1px solid #EEEEEE;
-  padding-right: 30px;
-  padding-left: 30px;
   font-family: 'Montserrat', 'sans-serif';
   color: #4C4C4D;
+  max-width: 700px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
 
   .monster-name {
     display: flex;

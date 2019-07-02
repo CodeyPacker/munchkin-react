@@ -17,14 +17,14 @@ const MonsterCounter = (props) => {
 }
 
 const ModifierButtons = styled.div`
-  height: 100%;
+  min-height: 100%;
   display: flex;
   align-items: center;
   flex-wrap: no-wrap;
 
   button {
     width: 40px;
-    height: 100%;
+    min-height:100%;
     background-color: #E3E3E3;
     color: #8B8B8D;
     font-weight: bold;

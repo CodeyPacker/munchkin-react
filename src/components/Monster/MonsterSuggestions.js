@@ -6,7 +6,7 @@ const MonsterSuggestions = () => {
   return (
     <Consumer>
       { context => (
-        <div>
+        <SuggestionContainer>
           {context.matchedMonsters.map((monster, i) => {
             return (
               <Suggestion
@@ -17,11 +17,18 @@ const MonsterSuggestions = () => {
               </Suggestion>
             )
           })}
-        </div>
+        </SuggestionContainer>
       )}
     </Consumer>
  );
 }
+
+const SuggestionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+`
 
 const Suggestion = styled.button`
   width: calc(100% - 30px);
@@ -32,8 +39,8 @@ const Suggestion = styled.button`
   padding: 10px;
   color: white;
   border-radius: 5px;
-  background-color: #5d2ae5;
-  border: 1px solid #5d2ae5;
+  background-color: #8063FA;
+  border: 1px solid #8063FA;
   font-family: 'Montserrat', 'sans-serif';
 `
 

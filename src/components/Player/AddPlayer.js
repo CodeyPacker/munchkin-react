@@ -21,6 +21,7 @@ const AddPlayerWrapper = styled.div`
     padding: 10px 15px;
     border: 0;
     font-family: 'Montserrat', 'sans-serif';
+    :focus { outline: none; }
   }
 `
 
