@@ -32,7 +32,7 @@ const SuggestionContainer = styled.div`
 
 const Suggestion = styled.button`
   width: calc(100% - 30px);
-  max-width: 350px;
+  max-width: 400px;
   margin: 5px auto;
   font-size: 25px;
   line-height: 30px;

@@ -35,6 +35,18 @@ const MonsterSearch = () => {
                   onChange={(e) => context.actions.monsterChange(e, monsterData)}
                   placeholder="Monster Name"
                 />
+                <SuggestionContainer>
+                  {context.matchedMonsters.map((monster, i) => {
+                    return (
+                      <Suggestion
+                        onClick={(e) => context.actions.getActiveMonster(e)}
+                        key={context.matchedMonsters[i]}
+                        value={context.matchedMonsters[i]}>
+                        {context.matchedMonsters[i]}
+                      </Suggestion>
+                    )
+                  })}
+                </SuggestionContainer>
               </InputContainer>
             )}
           />
@@ -46,8 +58,10 @@ const MonsterSearch = () => {
 
 const InputContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: #8063FA;
+  position: relative;
 `
 const MonsterInput = styled.input`
   max-width: 700px;
@@ -65,5 +79,30 @@ const MonsterInput = styled.input`
       outline: none;
     }
 `
+
+const SuggestionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: absolute;
+  top: 76px;
+  width: 100%;
+`
+
+const Suggestion = styled.button`
+  width: calc(100% - 30px);
+  max-width: 350px;
+  margin: 5px auto;
+  font-size: 25px;
+  line-height: 30px;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  background-color: #8063FA;
+  border: 1px solid #8063FA;
+  font-family: 'Montserrat', 'sans-serif';
+`
+
 
 export default MonsterSearch;
