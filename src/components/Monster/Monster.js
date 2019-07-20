@@ -57,7 +57,7 @@ const MonsterWrapper = styled.div`
     cursor: pointer;
     transition: -webkit-text-stroke-width, color, opacity .2s;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 
     :hover {
       color: #F9A7A7;

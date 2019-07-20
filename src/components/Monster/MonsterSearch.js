@@ -88,6 +88,7 @@ const SuggestionContainer = styled.div`
   position: absolute;
   top: 76px;
   width: 100%;
+  z-index: 2;
 `
 
 const Suggestion = styled.button`
