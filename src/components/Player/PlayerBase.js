@@ -70,8 +70,9 @@ const PlayerImage = styled.img`
   padding-top: 26px;
   padding-bottom: 26px;
   max-width: 150px;
-  max-height: 202px;
+  max-height: 205px;
   width: 100%;
+  height: 100%;
 `
 const CounterWrapper = styled.div`
   height: 60px;
